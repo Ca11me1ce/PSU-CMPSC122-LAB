@@ -1,4 +1,4 @@
-#Lab #8
+#Lab #10
 #Due Date: 07/06/2018, 11:59PM EST
 
 #Name:
@@ -13,14 +13,11 @@ class Node:
 
     __repr__ = __str__
                         
-#Tip: work on paper first to see what pointers need to be updated
-#     based on the position of the Node
                           
-class OrderedLinkedList:
+class Queue:
     def __init__(self):
         self.head=None
         self.tail=None
-        #self.length=0 #I added this attribute
 
     def __str__(self):
         temp=self.head
@@ -28,12 +25,23 @@ class OrderedLinkedList:
         while temp:
             out+=str(temp.value)+ ' '
             temp=temp.next
-        return ('Head:{}\nTail:{}\nList:{}'.format(self.head,self.tail,out))
+        return ('Head:{}\nTail:{}\nQueue:{}'.format(self.head,self.tail,out))
 
     __repr__=__str__
 
 
-    def add(self, value):
+    def isEmpty(self):
+        #write your code here
+        return self.head==None
+    def size(self):
+        #write your code here
+        if self.head==None:return 0
+        count, curr=1, self.head
+        while curr!=self.tail:
+            count+=1
+            curr=curr.next
+        return count
+    def enqueue(self, value):
         #write your code here
         tmp=None
         if isinstance(value, Node):tmp=value
@@ -43,42 +51,23 @@ class OrderedLinkedList:
             node=self.head
             while node.next:node=node.next
             node.next=tmp
-        if self.head is None:return
-        curr=self.head.next
-        while curr!=None:
-            curr_next, ptr=curr.value, self.head
-            while ptr!=curr and ptr.value<=curr_next:ptr=ptr.next
-            while ptr!=curr:
-                curr_next,ptr.value=ptr.value,curr_next
-                ptr=ptr.next
-            curr.value=curr_next
-            curr=curr.next
         self.tail=tmp
-    def pop(self):
+    def dequeue(self):
         #write your code here
-        if self.head==None:return 'List is empty'
+        if self.head==None:return 'Queue is empty'
         tmp=self.head
         if tmp.next==None:
             n=tmp.value
             self.head,self.tail=None
             return n
+        #problem here
         while tmp.next.next!=None:
             tmp=tmp.next
             self.tail=tmp
         n=tmp.next.value
         tmp.next=None
         return n
-    def isEmpty(self):
-        #write your code here
-        return (self.head==None)
-    def size(self):
-        #write your code here
-        if self.head==None:return 0
-        count, curr=1, self.head
-        while curr!=self.tail:
-            count+=1
-            curr=curr.next
-        return count
+
     # --- Your code ends here
 
 #############################
@@ -86,16 +75,37 @@ class OrderedLinkedList:
 #   test cases, do not copy #
 #                           #
 #############################
-x=OrderedLinkedList()
+x=Queue()
+print(x.isEmpty())
+x.enqueue(10)
+x.enqueue(3)
+x.enqueue(12)
+print('---',x,'---')
+print(x.dequeue())
+x.enqueue(8)
+x.enqueue(11)
+x.enqueue(5)
+print(x.dequeue())
+print(x.isEmpty())
+print(x.size())
+print(x)
+
+"""
+x=Queue()
+print(x.isEmpty())
+print(x.size())
+x.enqueue(100)
+x.enqueue(500)
+x.enqueue(300)
+x.enqueue(200)
+x.enqueue(400)
+print(x)
 print(x.size())
 print(x.isEmpty())
-print(x.pop())
-#x.isEmpty()
-x.add(7)
-x.add(-11)
-x.add(9)
-x.add(1)
-x.add(-1000)
+x.dequeue()
 print(x)
 print(x.isEmpty())
-print(x.size())
+x.dequeue()
+print(x)
+print(x.isEmpty())
+"""
