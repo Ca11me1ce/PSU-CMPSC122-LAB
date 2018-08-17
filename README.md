@@ -1,2 +1,2 @@
 # PSU-CMPSC122-LAB
-## Summer
+## Summer 2018 Version
