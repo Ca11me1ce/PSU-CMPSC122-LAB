@@ -1,9 +1,3 @@
-#Lab #13
-#Due Date: 07/13/2018, 11:59PM EST
-
-#Name: 
-
-
 def merge(list1, list2):
     i,j, ls=0, 0, []
     while((i<len(list1))&(j<len(list2))):

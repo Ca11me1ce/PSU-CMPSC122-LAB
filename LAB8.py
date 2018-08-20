@@ -1,8 +1,3 @@
-#Lab #8
-#Due Date: 07/06/2018, 11:59PM EST
-
-#Name:
-
 class Node:
     def __init__(self, value):
         self.value = value  
@@ -12,16 +7,11 @@ class Node:
         return "Node({})".format(self.value) 
 
     __repr__ = __str__
-                        
-#Tip: work on paper first to see what pointers need to be updated
-#     based on the position of the Node
                           
 class OrderedLinkedList:
     def __init__(self):
         self.head=None
         self.tail=None
-        #self.length=0 #I added this attribute
-
     def __str__(self):
         temp=self.head
         out=''
@@ -34,7 +24,6 @@ class OrderedLinkedList:
 
 
     def add(self, value):
-        #write your code here
         tmp=None
         if isinstance(value, Node):tmp=value
         else:tmp=Node(value)
@@ -55,7 +44,6 @@ class OrderedLinkedList:
             curr=curr.next
         self.tail=tmp
     def pop(self):
-        #write your code here
         if self.head==None:return 'List is empty'
         tmp=self.head
         if tmp.next==None:
@@ -69,18 +57,14 @@ class OrderedLinkedList:
         tmp.next=None
         return n
     def isEmpty(self):
-        #write your code here
         return (self.head==None)
     def size(self):
-        #write your code here
         if self.head==None:return 0
         count, curr=1, self.head
         while curr!=self.tail:
             count+=1
             curr=curr.next
         return count
-    # --- Your code ends here
-
 #############################
 #                           #
 #   test cases, do not copy #

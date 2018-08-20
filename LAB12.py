@@ -1,9 +1,3 @@
-#Lab #12
-#Due Date: 07/13/2018, 11:59PM EST
-
-#Name: 
-
-
 def bubbleSort(numList):
     oldls=[]
     for i in range(len(numList)-1, 0, -1):

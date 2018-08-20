@@ -21,8 +21,6 @@ class Node:
 
 
 class Stack:
-
-# ----    Copy your Stack code from LAB8 here ---------
     def __init__(self):
         self.top = None
     
@@ -57,26 +55,17 @@ class Stack:
         else:tmp=Node(value)
         if not self.top:self.top=tmp
         else:
-            # node=self.top
-            # while node.next:node=node.next
-            # node.next=tmp
-
             tmp=Node(value)
             tmp.next = self.top
             self.top = tmp
 
     def pop(self):
-        #write your code here
         if self.top==None: return 'Stack is empty'
         tmp=self.top
         self.top=self.top.next
         return tmp
-# ----    Stack code ends here here ---------
 
 def findNextOpr(txt):
-
-    #--- Copy your function code from HW2 here ----#
-
     if len(txt)<=0 or not isinstance(txt,str):
 
         print("type error: findNextOpr")
@@ -113,20 +102,11 @@ def findNextOpr(txt):
 
 
 def isNumber(txt):
-
-    #--- Copy your function code from HW2 here ----#
-    #txt must be a non-empty string
-
-    #returns True if txt is convertible to float, else False
-
     if len(txt)==0 or not isinstance(txt, str):
 
         print("type error: isNumber")
 
         return "type error: isNumber"
-
-    #--- continue the rest of the code here ---#
-
     txt=txt.strip()
 
 
@@ -176,27 +156,11 @@ def isNumber(txt):
 
 
 def getNextNumber(expr, pos):
-
-    #--- Copy your function code from HW2 here ----#
-
-   #expr is a given arithmetic formula of type string
-
-    #pos = start position in expr
-
-    #1st returned value = the next number (None if N/A)
-
-    #2nd returned value = the next operator (None if N/A)
-
-    #3rd retruned value = the next operator position (None if N/A)
-
     if len(expr)==0 or not isinstance(expr, str) or pos<0 or pos>=len(expr) or not isinstance(pos, int):
 
         print("type error: getNextNumber")
 
         return None, None, "type error: getNextNumber"
-
-    #--- continue the rest of the code here ---#
-
     txt = expr[pos:]
 
     oprPos = findNextOpr(txt)

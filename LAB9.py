@@ -1,9 +1,3 @@
-#Lab #9
-#Due Date: 07/06/2018, 11:59PM EST
-
-#Name:
-
-
 class Node:
     def __init__(self, value):
         self.value = value  
@@ -31,20 +25,16 @@ class Stack:
 
 
     def isEmpty(self):
-        #write your code here
         return self.top==None
     def size(self):
-        #write your code here
         count, curr=0, self.top
         while curr!=None:
             count+=1
             curr=curr.next
         return count
     def peek(self):
-        #write your code here
         return self.top
     def push(self,value):
-        #write your code here
         tmp=None
         if isinstance(value, Node):
             tmp=value
@@ -52,21 +42,16 @@ class Stack:
             tmp=Node(value)
         if not self.top:
             self.top=tmp
-        #problem here
         else:
             node=self.top
             while node.next:
                 node=node.next
             node.next=tmp
-            #self.top=tmp
-        #self.top=tmp
     def pop(self):
-        #write your code here
         if self.top==None: return 'Stack is empty'
         tmp=self.top
         self.top=self.top.next
         return tmp
-    # --- Your code ends here
     
 #############################
 #                           #
@@ -79,19 +64,15 @@ x.push(1)
 print(x)
 print(x.pop())
 print(x.pop())
-print('----------')
 x.push(5)
 x.push(9)
 x.push(7)
 x.push(2)
 print(x)
-print('----------')
 print(x.pop())
 x.push(55)
-print('@@@@@')
 print(x.pop())
 print(x.pop())
-print('@@@@@')
 print(x)
 """
 x=Stack()

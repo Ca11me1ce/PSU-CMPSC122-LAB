@@ -7,7 +7,6 @@ class Complex():
 
 	def __add__(self, other):
 		self.r=self.r*other
-		#self.r=self.i[0]+self.i[1]
 		return self
 
 a=Complex(1,2)

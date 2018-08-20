@@ -1,10 +1,4 @@
-#Lab #15
-#Due Date: 07/27/2018, 11:59PM EST
-
-#Name: 
-
 def makingSound(n,sound):
-	#Write your code here
         def nested(arg):
             ls=[]
             for i in range(arg):

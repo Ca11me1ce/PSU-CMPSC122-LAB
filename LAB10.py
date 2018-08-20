@@ -1,8 +1,3 @@
-#Lab #10
-#Due Date: 07/06/2018, 11:59PM EST
-
-#Name:
-
 class Node:
     def __init__(self, value):
         self.value = value  
